@@ -15,6 +15,7 @@
         <section>
             <ul class="list-group">
                 {{#each burgers}}
+                {{#unless devoured}}
                 <li class="list-group-item">
                     <p>
                         {{this.id}}. {{this.burger_name}}
@@ -24,30 +25,39 @@
                         </button>
                     </p>
                 </li>
+                {{/unless}}
                 {{/each}}
             </ul>
         </section>
 
         <section>
             <ul class="list-group">
-
+                {{#each burgers}}
+                {{#if devoured}}
+                <li class="list-group-item">
+                    <p>
+                        {{this.id}}. {{this.burger_name}}
+                    </p>
+                </li>
+                {{/if}}
+                {{/each}}
             </ul>
         </section>
 
     </div>
 </main>
 <script>
-$("#makeBurger").on("click", function() {
-    let newBurger = {
-        name: $("#burgerInput").val().trim()
-    };
-    console.log(newBurger);
-    $.ajax("/api/burgers", {
-        type: "POST",
-        data: newBurger
-    }).then(function() {
-        console.log("created a new burger!");
-        location.reload();
+    $("#makeBurger").on("click", function () {
+        let newBurger = {
+            name: $("#burgerInput").val().trim()
+        };
+        console.log(newBurger);
+        $.ajax("/api/burgers", {
+            type: "POST",
+            data: newBurger
+        }).then(function () {
+            console.log("created a new burger!");
+            location.reload();
+        });
     });
-});
 </script>
