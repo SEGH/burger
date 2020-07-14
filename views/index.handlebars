@@ -20,7 +20,7 @@
                     <p>
                         {{this.id}}. {{this.burger_name}}
 
-                        <button data-id="{{id}}">
+                        <button id="eatBurger" data-id="{{id}}">
                             Devour it!
                         </button>
                     </p>
@@ -60,4 +60,17 @@
             location.reload();
         });
     });
+
+    $("#eatBurger").on("click", function () {
+        let id = $(this).data("id");
+        console.log(id);
+
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT"
+        }).then(function() {
+            console.log("NOM NOM NOM!" + id);
+            location.reload();
+        });
+    });
+
 </script>
