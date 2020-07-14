@@ -12,6 +12,11 @@ const burger = {
         orm.insertOne("burgers", "burger_name", value, function(res) {
             cb(res);
         });
+    },
+    updateOne: function(value, cb) {
+        orm.updateOne("burgers", "devoured", 1, value, function(res) {
+            cb(res);
+        });
     }
 }
 
