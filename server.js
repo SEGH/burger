@@ -6,6 +6,10 @@ const PORT = process.env.PORT || 8080;
 
 const app = express();
 
+// Body Parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
