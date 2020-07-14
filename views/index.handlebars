@@ -11,4 +11,28 @@
             <input type="text" class="form-control">
         </div>
     </section>
+    <div class="row">
+        <section>
+            <ul class="list-group">
+                {{#each burgers}}
+                <li class="list-group-item">
+                    <p>
+                        {{this.id}}. {{this.burger_name}}
+
+                        <button data-id="{{id}}">
+                            Devour it!
+                        </button>
+                    </p>
+                </li>
+                {{/each}}
+            </ul>
+        </section>
+
+        <section>
+            <ul class="list-group">
+
+            </ul>
+        </section>
+
+    </div>
 </main>
