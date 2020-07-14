@@ -11,19 +11,17 @@
             <input type="text" class="form-control" id="burgerInput">
         </div>
     </section>
-    <div class="row">
+    <div class="d-flex justify-content-around">
         <section>
+            <h2>Order Up!</h2>
             <ul class="list-group">
                 {{#each burgers}}
                 {{#unless devoured}}
-                <li class="list-group-item">
+                <li class="list-group-item rounded-pill bg-danger text-white shadow border-0 my-1 text-center">
                     <p>
                         {{this.id}}. {{this.burger_name}}
-
-                        <button id="eatBurger" data-id="{{id}}">
-                            Devour it!
-                        </button>
                     </p>
+                        <button class="btn btn-primary" id="eatBurger" data-id="{{id}}">Devour it!</button>
                 </li>
                 {{/unless}}
                 {{/each}}
@@ -31,10 +29,11 @@
         </section>
 
         <section>
+            <h2>Nom nom nom!</h2>
             <ul class="list-group">
                 {{#each burgers}}
                 {{#if devoured}}
-                <li class="list-group-item">
+                <li class="list-group-item rounded-pill bg-danger text-white shadow border-0 my-1 text-center">
                     <p>
                         {{this.id}}. {{this.burger_name}}
                     </p>
