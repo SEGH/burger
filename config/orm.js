@@ -18,8 +18,16 @@ const orm = {
 
             callBack(res);
         });
+    },
+
+    // updateOne() method to query SQL
+    updateOne: function(tableInput, colToUpdate, updateValue, conditionValue, callBack) {
+        connection.query("UPDATE ?? SET ?? = ? WHERE id = ?", [tableInput, colToUpdate, updateValue, conditionValue], function(err, res) {
+            if (err) throw err;
+
+            callBack(res);
+        });
     }
-// updateOne() method to query SQL
 }
 
 // Export ORM object
