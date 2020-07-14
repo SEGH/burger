@@ -6,9 +6,9 @@
         <hr class="mb-4 mt-1 border-warning">
         <div class="input-group input-group-lg px-5">
             <div class="input-group-prepend">
-                <button class="btn btn-primary" type="button">Submit</button>
+                <button class="btn btn-primary" type="button" id="makeBurger">Submit</button>
             </div>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="burgerInput">
         </div>
     </section>
     <div class="row">
@@ -36,3 +36,18 @@
 
     </div>
 </main>
+<script>
+$("#makeBurger").on("click", function() {
+    let newBurger = {
+        name: $("#burgerInput").val().trim()
+    };
+    console.log(newBurger);
+    $.ajax("/api/burgers", {
+        type: "POST",
+        data: newBurger
+    }).then(function() {
+        console.log("created a new burger!");
+        location.reload();
+    });
+});
+</script>
