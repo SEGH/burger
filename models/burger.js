@@ -7,6 +7,11 @@ const burger = {
         orm.selectAll("burgers", function(res) {
             cb(res);
         });
+    },
+    insertOne: function(value, cb) {
+        orm.insertOne("burgers", "burger_name", value, function(res) {
+            cb(res);
+        });
     }
 }
 
