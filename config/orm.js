@@ -9,9 +9,16 @@ const orm = {
 
             callBack(res);
         });
-    }
-// insertOne() method to query SQL
+    },
 
+    // insertOne() method to query SQL
+    insertOne: function(tableInput, coltoInsert, valOfCol, callBack) {
+        connection.query("INSERT INTO ?? (??) VALUES (?)", [tableInput, coltoInsert, valOfCol], function(err, res) {
+            if (err) throw err;
+
+            callBack(res);
+        });
+    }
 // updateOne() method to query SQL
 }
 
