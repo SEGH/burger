@@ -11,29 +11,29 @@
             <input type="text" class="form-control" id="burgerInput" placeholder="Place Your Order Here">
         </div>
     </section>
-    <div class="d-flex justify-content-around">
-        <section>
+    <div class="d-flex justify-content-around flex-column flex-lg-row">
+        <section class="text-center px-5">
             <h2>Order Up!</h2>
-            <ul class="list-group">
+            <ul class="list-group px-5">
                 {{#each burgers}}
                 {{#unless devoured}}
-                <li class="list-group-item rounded-pill bg-danger text-white shadow border-0 my-1 text-center">
+                <li class="list-group-item list-group-item-danger rounded-pill shadow border-0 my-1 text-center mx-5">
                     <p>
                         {{this.id}}. {{this.burger_name}}
                     </p>
-                        <button class="btn btn-primary" id="eatBurger" data-id="{{id}}">Devour it!</button>
+                        <button class="btn btn-secondary btn-sm rounded-pill" id="eatBurger" data-id="{{id}}">Devour it!</button>
                 </li>
                 {{/unless}}
                 {{/each}}
             </ul>
         </section>
 
-        <section>
+        <section class="text-center px-5">
             <h2>Nom nom nom!</h2>
-            <ul class="list-group">
+            <ul class="list-group px-5">
                 {{#each burgers}}
                 {{#if devoured}}
-                <li class="list-group-item rounded-pill bg-danger text-white shadow border-0 my-1 text-center">
+                <li class="list-group-item list-group-item-success rounded-pill shadow border-0 my-1 text-center mx-5">
                     <p>
                         {{this.id}}. {{this.burger_name}}
                     </p>
