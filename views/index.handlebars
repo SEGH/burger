@@ -18,7 +18,7 @@
                 {{#each burgers}}
                 {{#unless devoured}}
                 <li class="list-group-item list-group-item-danger rounded-pill shadow border-0 my-1 text-center mx-5">
-                    <button class="btn btn-secondary btn-sm rounded-pill" id="eatBurger" data-id="{{id}}"><i class="fas fa-hamburger" style="font-size: 1.5em;"></i> Devour it!</button>
+                    <button type="button" class="btn btn-secondary btn-sm rounded-pill eatBurger" data-id="{{id}}"><i class="fas fa-hamburger" style="font-size: 1.5em;"></i> Devour it!</button>
                     <p class="mb-0 mt-1">
                         {{this.id}}. {{this.burger_name}}
                     </p>
@@ -61,7 +61,7 @@
         });
     });
 
-    $("#eatBurger").on("click", function () {
+    $(".eatBurger").on("click", function () {
         let id = $(this).data("id");
         console.log(id);
 
