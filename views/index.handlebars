@@ -1,6 +1,6 @@
-<main class="container-md">
-    <section class="jumbotron text-center rounded-pill bg-danger text-light shadow-lg">
-        <h1 class="display-4>">Nom Nom Burgers!</h1>
+<main class="container-lg pt-5">
+    <section class="jumbotron text-center rounded-pill bg-danger text-light shadow-lg mx-5">
+        <h1 style="font-family: 'Modak', cursive; font-size: 5rem; font-weight: 100;">Nom Nom Burgers!</h1>
         <hr class="mt-4 mb-1 border-success">
         <hr class="my-1 border-primary">
         <hr class="mb-4 mt-1 border-warning">
@@ -11,30 +11,31 @@
             <input type="text" class="form-control" id="burgerInput" placeholder="Place Your Order Here">
         </div>
     </section>
-    <div class="d-flex justify-content-around flex-column flex-lg-row">
-        <section class="text-center px-5">
+    <div class="row">
+        <section class="col text-center px-5">
             <h2>Order Up!</h2>
             <ul class="list-group px-5">
                 {{#each burgers}}
                 {{#unless devoured}}
                 <li class="list-group-item list-group-item-danger rounded-pill shadow border-0 my-1 text-center mx-5">
-                    <p>
+                    <button class="btn btn-secondary btn-sm rounded-pill" id="eatBurger" data-id="{{id}}"><i class="fas fa-hamburger" style="font-size: 1.5em;"></i> Devour it!</button>
+                    <p class="mb-0 mt-1">
                         {{this.id}}. {{this.burger_name}}
                     </p>
-                        <button class="btn btn-secondary btn-sm rounded-pill" id="eatBurger" data-id="{{id}}">Devour it!</button>
                 </li>
                 {{/unless}}
                 {{/each}}
             </ul>
         </section>
 
-        <section class="text-center px-5">
+        <section class="col text-center px-5">
             <h2>Nom nom nom!</h2>
             <ul class="list-group px-5">
                 {{#each burgers}}
                 {{#if devoured}}
                 <li class="list-group-item list-group-item-success rounded-pill shadow border-0 my-1 text-center mx-5">
-                    <p>
+                    <i class="fas fa-hamburger" style="font-size: 2.5em;"></i>
+                    <p class="mb-0">
                         {{this.id}}. {{this.burger_name}}
                     </p>
                 </li>
@@ -66,7 +67,7 @@
 
         $.ajax("/api/burgers/" + id, {
             type: "PUT"
-        }).then(function() {
+        }).then(function () {
             console.log("NOM NOM NOM!" + id);
             location.reload();
         });
