@@ -1,10 +1,14 @@
 // Dependencies
 const express = require("express");
 const exphbs = require("express-handlebars");
+const favicon = require("serve-favicon");
 
 const PORT = process.env.PORT || 8080;
 
 const app = express();
+
+// Favicon middleware
+app.use(favicon(__dirname + "/public/favicon.ico"));
 
 // Body Parsing
 app.use(express.urlencoded({ extended: true }));
